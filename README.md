@@ -6,10 +6,13 @@ We considered 15 years of data from 2000 to 2015 with the objectives to observe 
 Data source: http://data.worldbank.org/ 
 
 Data set used:
-GDP
-Expend
-Export
-Imports of good and services
+####GDP 
+
+####Expend
+
+####Export
+
+####Imports of good and services
 
 Link to App: http://palomaurbano.shinyapps.io/Eu_indicators 
 
