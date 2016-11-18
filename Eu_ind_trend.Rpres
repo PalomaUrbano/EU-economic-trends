@@ -1,0 +1,90 @@
+European Union Economical Trends(2000-2015)
+========================================================
+author: Paloma Urbano
+date: 11/16/2016
+autosize: true
+
+Application Objectives
+========================================================
+
+This application presents key European Union(EU) economic indicators that may help you assess their correlation visually
+
+We considered 15 years of data from 2000 to 2015 with the objectives to observe trends among indicators and through time
+
+Data source: http://data.worldbank.org/
+
+Data set used:
+
+- GDP
+- Expend
+- Export
+- Imports of good and services
+
+Link to App: http://palomaurbano.shinyapps.io/Eu_indicators
+
+
+EU GDP versus Expend Trend
+========================================================
+This plot shows European Union GDP and Expend from 2000 to 2015
+```{r, echo=FALSE}
+
+source("server.R")
+eui <- prepareData()
+    plot(eui$year, eui$gdp, pch=15, type="b",lty=1, col="red", 
+         ylim = c(0, max(eui$gdp)), 
+         yaxt="n", xaxt = "n", ann=FALSE)
+         axis(side = 2, at = eui$gdp,labels = round(as.numeric(eui$gdp), digits=2), las=2, cex.axis=0.7, col.axis="blue")
+         axis(side = 1, at= as.numeric(eui$year), labels = eui$year, las=2, cex.axis=0.7, col.axis="blue")
+         title(main="European Union Economical Trends(2000-2015)",
+         ylab ="US Dollars", xlab = "Years",
+        cex.lab=0.7, cex.main = 1)
+      lines(eui$year, eui$expend, pch=8, type="b",lty=1, col="orange")
+```
+
+EU Imports and Exports Trend
+========================================================
+
+This plot shows EU Import & Exports from 2000 to 2015
+```{r, echo=FALSE}
+
+source("server.R")
+eui <- prepareData()
+    plot(eui$year, eui$gdp, pch=15, type="b",lty=1, col="red", 
+         ylim = c(0, max(eui$gdp)), 
+         yaxt="n", xaxt = "n", ann=FALSE)
+         axis(side = 2, at = eui$gdp,labels = round(as.numeric(eui$gdp), digits=2), las=2, cex.axis=0.7, col.axis="blue")
+         axis(side = 1, at= as.numeric(eui$year), labels = eui$year, las=2, cex.axis=0.7, col.axis="blue")
+         title(main="European Union Economical Trends(2000-2015)",
+         ylab ="US Dollars", xlab = "Years",
+        cex.lab=0.7, cex.main = 1)
+      lines(eui$year, eui$export, pch=9, type="b",lty=1, col="green")
+      lines(eui$year, eui$import, pch=10, type="b",lty=1, col="blue")
+```
+
+
+Conclusions
+========================================================
+
+Visually we can observe a close correlation between the EU GDP and expend. The gap between GDP and expend has expanded during the last few years due to austery measuments.
+
+```{r, echo=FALSE}
+summary(eui$gdp)
+summary(eui$expend)
+```
+
+Conclusions
+========================================================
+
+The EU exports closely correlate with the imports. The EU imports on average 20% more goods and services than what it exports.
+
+```{r, echo=FALSE}
+
+summary(eui$export)
+
+summary(eui$import)
+```
+
+
+
+
+
